@@ -1,16 +1,9 @@
 "use client";
 import React, { useState } from "react";
+import Link from "next/link";
 
-interface ISearchInputProps {
-  onSubmit: (input: string) => void;
-}
-
-function SearchBar({ onSubmit }: ISearchInputProps) {
+function SearchBar() {
   const [searchInput, setSearchInput] = useState("");
-
-  const localSubmit = () => {
-    onSubmit(searchInput);
-  };
 
   return (
     <div className="flex justify-center mt-10">
@@ -21,9 +14,9 @@ function SearchBar({ onSubmit }: ISearchInputProps) {
         onChange={(e) => setSearchInput(e.currentTarget.value)}
       />
 
-      <button onClick={localSubmit} className="btn btn-primary">
+      <Link href={`search?${searchInput}`} className="btn btn-primary">
         Search
-      </button>
+      </Link>
     </div>
   );
 }

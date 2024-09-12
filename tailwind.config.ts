@@ -12,6 +12,9 @@ const config: Config = {
         background: "var(--background)",
         foreground: "var(--foreground)",
       },
+      backgroundImage: {
+        xman: "url('/images/movie.jpg')",
+      },
     },
   },
   plugins: [require("rippleui")],

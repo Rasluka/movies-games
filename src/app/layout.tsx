@@ -26,7 +26,7 @@ export default function RootLayout({
       <body className={`${sourceSansPro.className}`}>
         <Navbar />
 
-        <div className="w-3/6 mx-auto">{children}</div>
+        <div className="lg:w-3/6 lg:mx-auto">{children}</div>
       </body>
     </html>
   );

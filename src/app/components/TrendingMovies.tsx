@@ -27,7 +27,7 @@ function TrendingMovies() {
 
   return (
     <>
-      <div className="flex my-6">
+      <div className="flex justify-center lg:justify-start my-6">
         <h2 className="text-4xl">Trending</h2>
         <div className="btn-group btn-group-scrollable ms-4">
           <input

@@ -2,17 +2,10 @@
 import React, { useState } from "react";
 import SearchBar from "./SearchBar";
 import MovieCard from "./MovieCard";
-
-type Movie = {
-  id: number;
-  original_title: string;
-  backdrop_path: string;
-  release_date: string;
-  overview: string;
-};
+import { IMovie } from "../types/movie";
 
 export default function MovieList() {
-  const [searchResult, setSearchResult] = useState<Movie[]>([]);
+  const [searchResult, setSearchResult] = useState<IMovie[]>([]);
 
   const onSubmit = (value: string) => {
     console.log(value);
@@ -21,7 +14,7 @@ export default function MovieList() {
 
   const apiFetch = async (searchValue: string) => {
     const data = await fetch(
-      `https://api.themoviedb.org/3/search/movie?query=${searchValue}&api_key=a258ba07c5eac02902bf0152801d54b4`
+      `https://api.themoviedb.org/3/search/movie?query=${searchValue}&api_key=`
     );
     const actualData = await data.json();
     console.log(actualData);
@@ -32,7 +25,7 @@ export default function MovieList() {
     <>
       <SearchBar onSubmit={onSubmit} />
 
-      {searchResult.map((aMovie: Movie) => {
+      {searchResult.map((aMovie: IMovie) => {
         return <MovieCard aMovie={aMovie} key={aMovie.id} />;
       })}
     </>

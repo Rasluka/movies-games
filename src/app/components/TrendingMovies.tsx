@@ -25,6 +25,15 @@ function TrendingMovies() {
     fetchTrendingMovies();
   }, [timeWindow]);
 
+  const handleInputRadio = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const inputValue = event.target.dataset.content;
+
+    if (inputValue === "day" || inputValue === "week") {
+      setTimeWindow(inputValue);
+      setTrendingMovies([]);
+    }
+  };
+
   return (
     <>
       <div className="flex justify-center lg:justify-start my-6">
@@ -33,22 +42,22 @@ function TrendingMovies() {
           <input
             type="radio"
             name="options"
-            data-content="Today"
+            data-content="day"
             checked={timeWindow === "day"}
             className={`btn ${
               timeWindow === "day" ? "bg-inherit" : "bg-transparent"
             }`}
-            onChange={() => setTimeWindow("day")}
+            onChange={handleInputRadio}
           />
           <input
             type="radio"
             name="options"
-            data-content="This Week"
+            data-content="week"
             checked={timeWindow === "week"}
             className={`btn ${
               timeWindow === "week" ? "bg-inherit" : "bg-transparent"
             }`}
-            onChange={() => setTimeWindow("week")}
+            onChange={handleInputRadio}
           />
         </div>
       </div>

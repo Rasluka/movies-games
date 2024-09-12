@@ -11,8 +11,8 @@ export default async function Home() {
         <div className="absolute inset-0 bg-blue-950 opacity-70"></div>
 
         <div className="relative z-10 p-10">
-          <h1 className="text-6xl mt-5">Welcome.</h1>
-          <h1 className="text-4xl mx-auto">
+          <h1 className="text-6xl mt-5 text-white">Welcome.</h1>
+          <h1 className="text-4xl mx-auto text-white">
             Millions of movies, TV shows and people to discover. Explore now.
           </h1>
 

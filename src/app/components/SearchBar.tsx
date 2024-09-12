@@ -15,7 +15,7 @@ function SearchBar() {
           placeholder="Search a movie"
           value={searchInput}
           onChange={(e) => setSearchInput(e.currentTarget.value)}
-          className="py-3 px-4 block w-full border-gray-200 shadow-sm rounded-s-lg text-sm focus:z-10 focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-neutral-900 dark:border-neutral-700 dark:text-neutral-400 dark:placeholder-neutral-500 dark:focus:ring-neutral-600"
+          className="py-3 px-4 block w-full rounded-s-lg text-sm focus:z-10 bg-white dark:bg-slate-900 bg-opacity-90 focus:border-blue-900 focus:ring-blue-900 dark:focus:border-blue-500 focus:ring dark:focus:ring-blue-200 focus:outline-none"
         />
         <button
           type="submit"

@@ -1,12 +1,11 @@
 "use client";
 import React, { useState } from "react";
-import Link from "next/link";
 
 function SearchBar() {
   const [searchInput, setSearchInput] = useState("");
 
   return (
-    <div className="flex justify-center mt-10">
+    <form action="/search" className="flex justify-center mt-10">
       <input
         className="input-block input w-1/3"
         placeholder="Search a movie"
@@ -14,10 +13,10 @@ function SearchBar() {
         onChange={(e) => setSearchInput(e.currentTarget.value)}
       />
 
-      <Link href={`search?${searchInput}`} className="btn btn-primary">
+      <button className="btn btn-primary" type="submit">
         Search
-      </Link>
-    </div>
+      </button>
+    </form>
   );
 }
 

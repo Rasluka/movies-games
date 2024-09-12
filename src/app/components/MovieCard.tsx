@@ -18,6 +18,7 @@ function MovieCard({ aMovie }: MovieCardProps) {
           width="160"
           height="240"
           alt="movie-poster"
+          className="rounded-lg"
         />
 
         <div

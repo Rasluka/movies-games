@@ -10,6 +10,14 @@ type TrendingMoviesResponse = {
 
 export async function GET(request: Request) {
   const apiKey = process.env.MOVIE_DB_API_KEY;
+
+  if (!apiKey) {
+    return NextResponse.json(
+      { error: "We could not get your API key" },
+      { status: 500 }
+    );
+  }
+
   const url = new URL(request.url);
   const timeWindow = url.searchParams.get("timeWindow") || "day";
   const apiUrl = `https://api.themoviedb.org/3/trending/movie/${timeWindow}?language=en-US&api_key=${apiKey}`;

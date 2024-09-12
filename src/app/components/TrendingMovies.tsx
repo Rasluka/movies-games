@@ -6,9 +6,11 @@ import ScrollableMovies from "./ScrollableMovies";
 function TrendingMovies() {
   const [trendingMovies, setTrendingMovies] = useState<IMovie[]>([]);
   const [timeWindow, setTimeWindow] = useState<"day" | "week">("day");
+  const [isLoading, setIsLoading] = useState<boolean>(false);
 
   useEffect(() => {
     const fetchTrendingMovies = async () => {
+      setIsLoading(true);
       try {
         const res = await fetch(`/api/trending?timeWindow=${timeWindow}`);
         if (!res.ok) {
@@ -17,6 +19,7 @@ function TrendingMovies() {
 
         const data = await res.json();
         setTrendingMovies(data);
+        setIsLoading(false);
       } catch (error) {
         setTrendingMovies([]);
       }
@@ -30,7 +33,7 @@ function TrendingMovies() {
 
     if (inputValue === "day" || inputValue === "week") {
       setTimeWindow(inputValue);
-      setTrendingMovies([]);
+      setIsLoading(true);
     }
   };
 
@@ -73,13 +76,23 @@ function TrendingMovies() {
           </label>
         </div>
       </div>
-      {trendingMovies.length > 0 ? (
-        <ScrollableMovies movies={trendingMovies} />
-      ) : (
-        <div className="flex items-center justify-center">
-          <div className="spinner-circle [--spinner-color:var(--blue-8)]"></div>
+
+      <div className="relative">
+        <div className={`${isLoading && "opacity-90"}`}>
+          <ScrollableMovies movies={trendingMovies} />
         </div>
-      )}
+
+        {isLoading && (
+          <div className="absolute inset-0 flex items-center justify-center z-10">
+            <div className="spinner-wave">
+              <div className="spinner-wave-dot"></div>
+              <div className="spinner-wave-dot"></div>
+              <div className="spinner-wave-dot"></div>
+              <div className="spinner-wave-dot"></div>
+            </div>
+          </div>
+        )}
+      </div>
     </>
   );
 }

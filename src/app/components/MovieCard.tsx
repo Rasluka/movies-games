@@ -11,7 +11,7 @@ function MovieCard({ aMovie }: MovieCardProps) {
   const avgVote = Math.round(aMovie.vote_average * 10);
 
   return (
-    <div className="mx-1 mt-3">
+    <div className="mx-1 mt-3 hover:opacity-90">
       <div className="relative ">
         <Image
           src={`https://image.tmdb.org/t/p/original/${aMovie.poster_path}`}

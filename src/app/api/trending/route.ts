@@ -8,14 +8,12 @@ type TrendingMoviesResponse = {
   total_results: number;
 };
 
-// Endpoint GET para obtener las películas en tendencia
 export async function GET(request: Request) {
   const apiKey = process.env.MOVIE_DB_API_KEY;
   const url = new URL(request.url);
   const timeWindow = url.searchParams.get("timeWindow") || "day";
   const apiUrl = `https://api.themoviedb.org/3/trending/movie/${timeWindow}?language=en-US&api_key=${apiKey}`;
 
-  // Realizar la petición a la API externa
   const response = await fetch(apiUrl);
 
   if (!response.ok) {

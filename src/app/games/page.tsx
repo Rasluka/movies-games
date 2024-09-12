@@ -1,7 +1,8 @@
 import React from "react";
+import NotImplementYet from "../components/NotImplementYet";
 
-function page() {
-  return <div>Games Page</div>;
+function GamesPage() {
+  return <NotImplementYet pageName="Games" />;
 }
 
-export default page;
+export default GamesPage;

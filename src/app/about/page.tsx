@@ -1,7 +1,8 @@
 import React from "react";
+import NotImplementYet from "../components/NotImplementYet";
 
-function about() {
-  return <div>about</div>;
+function AboutPage() {
+  return <NotImplementYet pageName="About" />;
 }
 
-export default about;
+export default AboutPage;

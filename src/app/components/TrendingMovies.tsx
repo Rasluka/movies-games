@@ -38,27 +38,39 @@ function TrendingMovies() {
     <>
       <div className="flex justify-center lg:justify-start my-6">
         <h2 className="text-4xl">Trending</h2>
-        <div className="btn-group btn-group-scrollable ms-4">
-          <input
-            type="radio"
-            name="options"
-            data-content="day"
-            checked={timeWindow === "day"}
+        <div className="btn-group btn-group-rounded btn-group-scrollable ms-4">
+          <label
             className={`btn ${
-              timeWindow === "day" ? "bg-inherit" : "bg-transparent"
+              timeWindow === "day"
+                ? "bg-blue-400 hover:bg-blue-500"
+                : "bg-transparent"
             }`}
-            onChange={handleInputRadio}
-          />
-          <input
-            type="radio"
-            name="options"
-            data-content="week"
-            checked={timeWindow === "week"}
+          >
+            <input
+              type="radio"
+              name="options"
+              data-content="day"
+              checked={timeWindow === "day"}
+              className="appearance-none"
+              onChange={handleInputRadio}
+            />
+            Day
+          </label>
+          <label
             className={`btn ${
-              timeWindow === "week" ? "bg-inherit" : "bg-transparent"
+              timeWindow === "week" ? "bg-blue-400" : "bg-transparent"
             }`}
-            onChange={handleInputRadio}
-          />
+          >
+            <input
+              type="radio"
+              name="options"
+              data-content="week"
+              checked={timeWindow === "week"}
+              className="appearance-none"
+              onChange={handleInputRadio}
+            />
+            Week
+          </label>
         </div>
       </div>
       {trendingMovies.length > 0 ? (

@@ -52,8 +52,13 @@ function TrendingMovies() {
           />
         </div>
       </div>
-
-      <ScrollableMovies movies={trendingMovies} />
+      {trendingMovies.length > 0 ? (
+        <ScrollableMovies movies={trendingMovies} />
+      ) : (
+        <div className="flex items-center justify-center">
+          <div className="spinner-circle [--spinner-color:var(--blue-8)]"></div>
+        </div>
+      )}
     </>
   );
 }

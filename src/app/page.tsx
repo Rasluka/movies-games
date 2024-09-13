@@ -1,6 +1,6 @@
 import SearchBar from "./components/SearchBar";
 import TrendingMovies from "./components/TrendingMovies";
-TrendingMovies;
+import PopularPeople from "./components/PopularPeople";
 
 export default async function Home() {
   return (
@@ -21,6 +21,8 @@ export default async function Home() {
       </div>
 
       <TrendingMovies />
+
+      <PopularPeople />
     </>
   );
 }

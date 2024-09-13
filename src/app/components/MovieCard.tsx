@@ -18,7 +18,7 @@ function MovieCard({ aMovie }: MovieCardProps) {
           width="160"
           height="240"
           alt="movie-poster"
-          className="rounded-lg shadow-2xl hover:shadow-cyan-500/50"
+          className="rounded-lg shadow-2xl hover:shadow-cyan-500/50 hover:scale-105 ease-in duration-500"
         />
 
         <div className="absolute -bottom-5 left-1">

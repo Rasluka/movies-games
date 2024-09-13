@@ -8,7 +8,7 @@ interface IScrollableMoviesProps {
 
 function ScrollableMovies({ movies }: IScrollableMoviesProps) {
   return (
-    <div className="flex overflow-x-auto scrollbar p-4">
+    <div className="flex overflow-x-auto scrollbar scroll-smooth p-4">
       {movies &&
         movies.map((aMovie: IMovie) => (
           <MovieCard aMovie={aMovie} key={aMovie.id} />

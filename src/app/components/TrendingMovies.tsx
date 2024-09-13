@@ -28,52 +28,52 @@ function TrendingMovies() {
     fetchTrendingMovies();
   }, [timeWindow]);
 
-  const handleInputRadio = (event: React.ChangeEvent<HTMLInputElement>) => {
-    const inputValue = event.target.dataset.content;
+  const handleInputRadio = (event: React.MouseEvent<HTMLButtonElement>) => {
+    const inputValue = event.currentTarget.name;
 
-    if (inputValue === "day" || inputValue === "week") {
+    console.log(inputValue);
+
+    if (
+      (inputValue === "day" || inputValue === "week") &&
+      inputValue !== timeWindow
+    ) {
       setTimeWindow(inputValue);
       setIsLoading(true);
     }
   };
 
   return (
-    <>
-      <div className="flex justify-center lg:justify-start my-6">
-        <h2 className="text-4xl">Trending</h2>
-        <div className="btn-group btn-group-rounded btn-group-scrollable ms-4">
-          <label
-            className={`btn ${
-              timeWindow === "day"
-                ? "bg-blue-400 hover:bg-blue-500"
-                : "bg-transparent"
-            }`}
-          >
-            <input
-              type="radio"
-              name="options"
-              data-content="day"
-              checked={timeWindow === "day"}
-              className="appearance-none"
-              onChange={handleInputRadio}
-            />
-            Day
-          </label>
-          <label
-            className={`btn ${
-              timeWindow === "week" ? "bg-blue-400" : "bg-transparent"
-            }`}
-          >
-            <input
-              type="radio"
-              name="options"
-              data-content="week"
-              checked={timeWindow === "week"}
-              className="appearance-none"
-              onChange={handleInputRadio}
-            />
-            Week
-          </label>
+    <div>
+      <div className="relative p-5 mt-2 rounded">
+        <div className="absolute inset-0 bg-[url('/images/movie.jpg')] bg-cover rounded"></div>
+        <div className="absolute inset-0 bg-blue-950 opacity-90 rounded"></div>
+
+        <div className="relative z-10 ">
+          <div className="flex justify-center lg:justify-between">
+            <h2 className="text-4xl text-white">Trending</h2>
+            <div className="btn-group btn-group-rounded btn-group-scrollable ms-4"></div>
+
+            <div className="btn-group btn-group-rounded btn-group-scrollable">
+              <button
+                name="day"
+                onClick={handleInputRadio}
+                className={`btn btn-primary ${
+                  timeWindow === "day" ? "btn-active" : ""
+                }`}
+              >
+                Today
+              </button>
+              <button
+                name="week"
+                onClick={handleInputRadio}
+                className={`btn btn-primary ${
+                  timeWindow === "week" ? "btn-active" : ""
+                }`}
+              >
+                This Week
+              </button>
+            </div>
+          </div>
         </div>
       </div>
 
@@ -93,7 +93,7 @@ function TrendingMovies() {
           </div>
         )}
       </div>
-    </>
+    </div>
   );
 }
 

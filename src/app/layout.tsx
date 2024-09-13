@@ -1,10 +1,11 @@
 import type { Metadata } from "next";
+// import Navbar from "./components/Navbar";
 import Navbar from "./components/Navbar";
 import { Source_Sans_3 } from "next/font/google";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "Pure Cinema!",
+  title: "PureCinema!",
   description: "A TMDB Clone",
 };
 
@@ -24,6 +25,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${sourceSansPro.className}`}>
+        {/* <Navbar /> */}
         <Navbar />
 
         <div className="lg:w-3/6 lg:mx-auto">{children}</div>

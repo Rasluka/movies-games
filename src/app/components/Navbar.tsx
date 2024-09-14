@@ -23,7 +23,7 @@ function Navbar() {
         </Link>
 
         <div className="lg:hidden me-2">
-          <button className="" onClick={() => setIsOpen(!isOpen)}>
+          <button className="text-white" onClick={() => setIsOpen(!isOpen)}>
             {!isOpen ? <MenuIcon /> : <CloseIcon />}
           </button>
         </div>
